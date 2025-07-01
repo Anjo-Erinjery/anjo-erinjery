@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anjo Samson Erinjery - Full Stack Developer</title>
+    <!-- Poppins font for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-        
+        /* Base styles for the entire document */
         * {
             margin: 0;
             padding: 0;
@@ -15,13 +16,18 @@
 
         body {
             font-family: 'Poppins', sans-serif;
+            /* Gradient background for a vibrant feel */
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevent horizontal scroll */
             position: relative;
+            display: flex; /* Use flexbox to center content */
+            justify-content: center;
+            align-items: center;
+            padding: 20px; /* Padding around the whole page */
         }
 
-        /* Animated Background */
+        /* Animated Background Circles */
         body::before {
             content: '';
             position: fixed;
@@ -29,6 +35,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            /* SVG for animated radial gradients */
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="rg" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:1" /></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23rg)"><animate attributeName="r" values="50;150;50" dur="8s" repeatCount="indefinite"/></circle><circle cx="800" cy="300" r="80" fill="url(%23rg)"><animate attributeName="r" values="40;120;40" dur="6s" repeatCount="indefinite"/></circle><circle cx="300" cy="800" r="120" fill="url(%23rg)"><animate attributeName="r" values="60;180;60" dur="10s" repeatCount="indefinite"/></circle></svg>');
             pointer-events: none;
             z-index: 0;
@@ -37,32 +44,34 @@
         .container {
             position: relative;
             z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
+            width: 100%; /* Full width within its flex container */
+            max-width: 1400px; /* Max width for larger screens */
+            margin: 0 auto; /* Center the container */
         }
 
         .resume-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+            backdrop-filter: blur(20px); /* Frosted glass effect */
             border-radius: 30px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2); /* Deep shadow for floating effect */
             overflow: hidden;
             position: relative;
-            animation: cardFloat 6s ease-in-out infinite;
+            animation: cardFloat 6s ease-in-out infinite; /* Subtle floating animation */
         }
 
         @keyframes cardFloat {
             0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-10px) scale(1.01); }
+            50% { transform: translateY(-10px) scale(1.005); } /* Reduced scale for subtler effect */
         }
 
         .hero-section {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Deep blue gradient */
             padding: 80px 60px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            border-top-left-radius: 30px; /* Match card border-radius */
+            border-top-right-radius: 30px;
         }
 
         .hero-section::before {
@@ -72,6 +81,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
+            /* Diagonal stripes for background animation */
             background: repeating-linear-gradient(
                 45deg,
                 transparent,
@@ -79,7 +89,7 @@
                 rgba(255, 255, 255, 0.03) 2px,
                 rgba(255, 255, 255, 0.03) 4px
             );
-            animation: slide 20s linear infinite;
+            animation: slide 20s linear infinite; /* Slow diagonal slide */
         }
 
         @keyframes slide {
@@ -89,16 +99,16 @@
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Ensure content is above animated background */
         }
 
         .name {
-            font-size: 4.5em;
+            font-size: 4.5em; /* Large, impactful name */
             font-weight: 900;
             color: #fff;
             margin-bottom: 20px;
             text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: titleGlow 3s ease-in-out infinite alternate;
+            animation: titleGlow 3s ease-in-out infinite alternate; /* Subtle glow effect */
         }
 
         @keyframes titleGlow {
@@ -108,12 +118,12 @@
 
         .job-title {
             font-size: 1.8em;
-            color: #64b5f6;
+            color: #64b5f6; /* Lighter blue for contrast */
             font-weight: 600;
             letter-spacing: 3px;
             text-transform: uppercase;
             margin-bottom: 30px;
-            animation: pulse 2s infinite;
+            animation: pulse 2s infinite; /* Gentle pulse effect */
         }
 
         @keyframes pulse {
@@ -136,9 +146,9 @@
         .stat-number {
             font-size: 3em;
             font-weight: 800;
-            color: #4fc3f7;
+            color: #4fc3f7; /* Bright blue for numbers */
             display: block;
-            animation: countUp 2s ease-out;
+            animation: countUp 2s ease-out forwards; /* Ensures animation stays at end state */
         }
 
         .stat-label {
@@ -155,15 +165,16 @@
 
         .main-grid {
             display: grid;
-            grid-template-columns: 400px 1fr;
-            gap: 0;
+            grid-template-columns: 400px 1fr; /* Fixed sidebar, flexible content */
+            gap: 0; /* No gap between sidebar and content */
         }
 
         .sidebar {
-            background: linear-gradient(180deg, #263238 0%, #37474f 100%);
+            background: linear-gradient(180deg, #263238 0%, #37474f 100%); /* Dark gradient for sidebar */
             padding: 50px 40px;
             color: white;
             position: relative;
+            border-bottom-left-radius: 30px; /* Match card border-radius */
         }
 
         .sidebar::before {
@@ -173,8 +184,8 @@
             right: 0;
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg, #4fc3f7, #29b6f6, #0288d1);
-            animation: heightGrow 2s ease-out;
+            background: linear-gradient(180deg, #4fc3f7, #29b6f6, #0288d1); /* Blue accent line */
+            animation: heightGrow 2s ease-out; /* Line growing animation */
         }
 
         @keyframes heightGrow {
@@ -184,12 +195,13 @@
 
         .content-area {
             padding: 50px 60px;
-            background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%);
+            background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%); /* Light gray gradient for content */
+            border-bottom-right-radius: 30px; /* Match card border-radius */
         }
 
         .section {
             margin-bottom: 50px;
-            animation: slideInUp 0.8s ease-out;
+            animation: slideInUp 0.8s ease-out; /* Slide in animation for sections */
         }
 
         @keyframes slideInUp {
@@ -200,7 +212,7 @@
         .section-title {
             font-size: 2.2em;
             font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #667eea, #764ba2); /* Purple-blue gradient for titles */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -216,9 +228,9 @@
             left: 0;
             width: 80px;
             height: 4px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #667eea, #764ba2); /* Underline for titles */
             border-radius: 2px;
-            animation: widthGrow 1.5s ease-out;
+            animation: widthGrow 1.5s ease-out; /* Underline growing animation */
         }
 
         @keyframes widthGrow {
@@ -227,13 +239,13 @@
         }
 
         .sidebar .section-title {
-            color: #4fc3f7;
+            color: #4fc3f7; /* Bright blue for sidebar titles */
             font-size: 1.8em;
-            -webkit-text-fill-color: #4fc3f7;
+            -webkit-text-fill-color: #4fc3f7; /* For webkit browsers */
         }
 
         .sidebar .section-title::after {
-            background: #4fc3f7;
+            background: #4fc3f7; /* Matching underline for sidebar titles */
         }
 
         .profile-text {
@@ -246,7 +258,7 @@
             background: white;
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            border-left: 6px solid #667eea;
+            border-left: 6px solid #667eea; /* Accent border */
         }
 
         .skills-container {
@@ -255,7 +267,7 @@
         }
 
         .skill-category {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 25px;
@@ -265,7 +277,7 @@
 
         .skill-category:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(79, 195, 247, 0.3);
+            box-shadow: 0 15px 40px rgba(79, 195, 247, 0.3); /* Shadow on hover */
         }
 
         .skill-category h4 {
@@ -289,7 +301,7 @@
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+            background: linear-gradient(135deg, #4fc3f7, #29b6f6); /* Blue gradient tags */
             color: white;
             padding: 8px 16px;
             border-radius: 25px;
@@ -324,7 +336,7 @@
         .project-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
-            border-color: #667eea;
+            border-color: #667eea; /* Border color on hover */
         }
 
         .project-card::before {
@@ -334,7 +346,7 @@
             left: 0;
             width: 100%;
             height: 6px;
-            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb); /* Top border gradient */
         }
 
         .project-header {
@@ -350,7 +362,7 @@
             padding: 20px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-            animation: bounce 2s infinite;
+            animation: bounce 2s infinite; /* Subtle bounce for emojis */
         }
 
         @keyframes bounce {
@@ -387,12 +399,12 @@
         }
 
         .project-features li::before {
-            content: '⚡';
+            content: '⚡'; /* Lightning bolt emoji */
             position: absolute;
             left: 0;
             color: #667eea;
             font-size: 1.2em;
-            animation: spark 1.5s infinite;
+            animation: spark 1.5s infinite; /* Sparkle animation */
         }
 
         @keyframes spark {
@@ -412,7 +424,7 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: linear-gradient(180deg, #4fc3f7, #29b6f6);
+            background: linear-gradient(180deg, #4fc3f7, #29b6f6); /* Timeline vertical line */
             border-radius: 2px;
         }
 
@@ -427,9 +439,9 @@
         }
 
         .education-item::before {
-            content: '🎓';
+            content: '🎓'; /* Graduation cap emoji */
             position: absolute;
-            left: -45px;
+            left: -45px; /* Position to the left of the timeline */
             top: 25px;
             background: #4fc3f7;
             width: 30px;
@@ -456,7 +468,7 @@
             justify-content: space-between;
             align-items: center;
             transition: all 0.3s ease;
-            border-left: 5px solid;
+            border-left: 5px solid; /* Colored border based on status */
         }
 
         .cert-item:hover {
@@ -465,15 +477,15 @@
         }
 
         .cert-completed {
-            border-left-color: #4caf50;
+            border-left-color: #4caf50; /* Green for completed */
         }
 
         .cert-progress {
-            border-left-color: #ff9800;
+            border-left-color: #ff9800; /* Orange for in progress */
         }
 
         .cert-upcoming {
-            border-left-color: #9e9e9e;
+            border-left-color: #9e9e9e; /* Gray for upcoming */
         }
 
         .cert-status {
@@ -513,7 +525,8 @@
         .contact-icon {
             font-size: 1.3em;
             color: #4fc3f7;
-            width: 30px;
+            width: 30px; /* Fixed width for icon alignment */
+            text-align: center;
         }
 
         .download-btn {
@@ -555,6 +568,12 @@
             border-radius: 15px;
             padding: 20px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #b0bec5; /* Light gray text for these sections */
+        }
+
+        .lang-hobby-item h4 {
+            color: #4fc3f7; /* Blue for titles */
+            margin-bottom: 10px;
         }
 
         .hobby-tags {
@@ -565,7 +584,7 @@
         }
 
         .hobby-tag {
-            background: linear-gradient(135deg, #f093fb, #f5576c);
+            background: linear-gradient(135deg, #f093fb, #f5576c); /* Pink-red gradient tags */
             color: white;
             padding: 8px 16px;
             border-radius: 20px;
@@ -577,62 +596,336 @@
         /* Responsive Design */
         @media (max-width: 1200px) {
             .main-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Stack sidebar and content on smaller screens */
             }
             
+            .hero-section {
+                padding: 60px 40px; /* Adjust padding for medium screens */
+            }
+
             .hero-stats {
-                flex-direction: column;
+                flex-direction: column; /* Stack stats vertically */
                 gap: 30px;
             }
             
             .name {
-                font-size: 3.5em;
+                font-size: 3.5em; /* Adjust name font size */
+            }
+
+            .sidebar {
+                border-bottom-left-radius: 0; /* Remove specific border-radius when stacked */
+                border-top-right-radius: 30px; /* Add top-right radius to sidebar */
+                padding-bottom: 30px; /* Add some bottom padding */
+            }
+
+            .sidebar::before {
+                width: 100%; /* Make the line horizontal */
+                height: 2px;
+                bottom: 0;
+                top: auto;
+                left: 0;
+                background: linear-gradient(90deg, #4fc3f7, #29b6f6, #0288d1); /* Horizontal gradient */
+            }
+
+            .content-area {
+                border-top-right-radius: 0; /* Remove top-right radius when stacked */
+                border-bottom-left-radius: 30px; /* Add bottom-left radius to content area */
             }
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 10px; /* Reduce overall body padding */
+                align-items: flex-start; /* Align to top on smaller screens */
+            }
+
+            .resume-card {
+                border-radius: 20px; /* Smaller border-radius for mobile */
+            }
+
             .hero-section {
-                padding: 50px 30px;
+                padding: 40px 20px; /* Further reduce padding */
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
             }
             
             .name {
-                font-size: 2.8em;
+                font-size: 2.5em; /* Smaller font size for name */
+                margin-bottom: 15px;
+            }
+
+            .job-title {
+                font-size: 1.4em; /* Smaller font size for job title */
+                letter-spacing: 2px;
+                margin-bottom: 20px;
+            }
+
+            .hero-stats {
+                gap: 20px; /* Smaller gap for stats */
+            }
+
+            .stat-number {
+                font-size: 2.2em; /* Smaller stat numbers */
+            }
+
+            .stat-label {
+                font-size: 0.9em; /* Smaller stat labels */
             }
             
             .content-area, .sidebar {
-                padding: 30px 20px;
+                padding: 30px 20px; /* Adjust padding for mobile */
             }
-            
-            .cert-grid {
-                grid-template-columns: 1fr;
+
+            .section-title {
+                font-size: 1.8em; /* Smaller section titles */
+                margin-bottom: 20px;
+            }
+
+            .section-title::after {
+                width: 60px; /* Smaller underline */
+            }
+
+            .sidebar .section-title {
+                font-size: 1.5em; /* Smaller sidebar titles */
+            }
+
+            .profile-text {
+                font-size: 1em; /* Smaller profile text */
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            .project-card {
+                padding: 30px 20px; /* Smaller project card padding */
+                border-radius: 20px;
+            }
+
+            .project-emoji {
+                font-size: 2.5em; /* Smaller project emoji */
+                padding: 15px;
+                border-radius: 15px;
+            }
+
+            .project-title {
+                font-size: 1.5em; /* Smaller project title */
+            }
+
+            .project-tech {
+                font-size: 1em; /* Smaller project tech text */
+            }
+
+            .project-features li {
+                font-size: 0.95em; /* Smaller feature text */
+                padding-left: 25px;
+            }
+
+            .education-item {
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            .education-item::before {
+                left: -35px; /* Adjust emoji position */
+                width: 25px;
+                height: 25px;
+                font-size: 1em;
+            }
+
+            .cert-item {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            .contact-info, .lang-hobby-item {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            .contact-item {
+                font-size: 1em;
+                gap: 10px;
+            }
+
+            .download-btn {
+                top: 15px;
+                right: 15px;
+                padding: 10px 20px;
+                font-size: 0.9em;
+                border-radius: 20px;
             }
         }
 
+        @media (max-width: 480px) {
+            .name {
+                font-size: 2em;
+            }
+            .job-title {
+                font-size: 1.2em;
+                letter-spacing: 1px;
+            }
+            .stat-number {
+                font-size: 1.8em;
+            }
+            .stat-label {
+                font-size: 0.8em;
+            }
+            .section-title {
+                font-size: 1.5em;
+            }
+            .profile-text {
+                font-size: 0.9em;
+                line-height: 1.6;
+            }
+            .project-title {
+                font-size: 1.3em;
+            }
+            .project-tech {
+                font-size: 0.9em;
+            }
+            .project-features li {
+                font-size: 0.9em;
+            }
+            .skill-tag, .hobby-tag {
+                font-size: 0.8em;
+                padding: 6px 12px;
+            }
+        }
+
+        /* Print styles for saving as PDF */
         @media print {
             body {
                 background: white;
+                padding: 0;
+                margin: 0;
+                display: block; /* Override flexbox for print */
+                min-height: auto;
             }
             
             .download-btn {
-                display: none;
+                display: none; /* Hide download button when printing */
             }
             
             .resume-card {
-                box-shadow: none;
+                box-shadow: none; /* Remove shadows for cleaner print */
+                animation: none; /* Remove animations for print */
+                border-radius: 0; /* No rounded corners for print */
+                width: 100%;
+                max-width: none;
+                margin: 0;
+            }
+
+            .hero-section {
+                padding: 40px 30px;
+                border-radius: 0;
+            }
+
+            .hero-section::before {
+                display: none; /* Hide animated background */
+            }
+
+            .name {
+                font-size: 3em; /* Adjust font size for print */
+            }
+
+            .job-title {
+                font-size: 1.5em;
+            }
+
+            .hero-stats {
+                flex-direction: row; /* Keep stats in a row for print */
+                gap: 30px;
+            }
+
+            .main-grid {
+                grid-template-columns: 250px 1fr; /* Adjust grid for print layout */
+            }
+
+            .sidebar {
+                padding: 30px 20px;
+                border-radius: 0;
+                border-right: 1px solid #ddd; /* Add a subtle border for separation */
+            }
+
+            .sidebar::before {
+                display: none; /* Hide animated line */
+            }
+
+            .content-area {
+                padding: 30px 40px;
+                border-radius: 0;
+            }
+
+            .section {
+                margin-bottom: 30px;
+                animation: none; /* Remove animations */
+            }
+
+            .section-title {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+                -webkit-print-color-adjust: exact; /* Ensure gradients print correctly */
+                color: #667eea; /* Fallback color for print */
+                background: none;
+            }
+
+            .section-title::after {
+                background: #667eea; /* Solid color for underline */
+                -webkit-print-color-adjust: exact;
                 animation: none;
             }
-            
-            .project-card:hover {
-                transform: none;
+
+            .sidebar .section-title {
+                color: #263238; /* Darker color for sidebar titles in print */
+                -webkit-text-fill-color: #263238;
+            }
+
+            .sidebar .section-title::after {
+                background: #263238;
+            }
+
+            .profile-text, .project-card, .education-item, .cert-item, .contact-info, .lang-hobby-item {
+                box-shadow: none;
+                border-radius: 0;
+                border: 1px solid #eee; /* Light border for elements */
+                background: white;
+            }
+
+            .project-card::before {
+                display: none; /* Hide top border gradient */
+            }
+
+            .project-features li::before {
+                content: '- '; /* Simple bullet for print */
+                font-size: 1em;
+                animation: none;
+                color: #555;
+            }
+
+            .education-item::before {
+                display: none; /* Hide emoji */
+            }
+
+            .education-timeline::before {
+                background: #ddd; /* Lighter timeline line */
+            }
+
+            .cert-item {
+                border-left-width: 3px; /* Thinner border for print */
+            }
+
+            .cert-status {
+                -webkit-print-color-adjust: exact;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Floating button to save the resume as PDF -->
     <button class="download-btn" onclick="window.print()">📄 Save as PDF</button>
     
     <div class="container">
         <div class="resume-card">
+            <!-- Hero Section: Name, Title, and Key Stats -->
             <section class="hero-section">
                 <div class="hero-content">
                     <h1 class="name">Anjo Samson Erinjery</h1>
@@ -655,7 +948,9 @@
                 </div>
             </section>
 
+            <!-- Main Content Grid: Sidebar and Main Content Area -->
             <div class="main-grid">
+                <!-- Sidebar: Contact, Technical Skills, Education, Languages & Hobbies -->
                 <aside class="sidebar">
                     <div class="contact-info">
                         <h3 class="section-title">Contact</h3>
@@ -764,6 +1059,7 @@
                     </section>
                 </aside>
 
+                <!-- Main Content Area: Professional Profile, Projects, Certifications -->
                 <main class="content-area">
                     <section class="section">
                         <h2 class="section-title">Professional Profile</h2>
@@ -826,4 +1122,42 @@
                         <h2 class="section-title">Certifications & Learning Journey</h2>
                         <div class="cert-grid">
                             <div class="cert-item cert-completed">
-                                <strong>Prompt Engineering</strong>
+                                <strong>ReactJS</strong>
+                                <span class="cert-status">✓</span>
+                            </div>
+                            <div class="cert-item cert-completed">
+                                <strong>Node.js using JavaScript</strong>
+                                <span class="cert-status">✓</span>
+                            </div>
+                            <div class="cert-item cert-completed">
+                                <strong>MySQL</strong>
+                                <span class="cert-status">✓</span>
+                            </div>
+                            <div class="cert-item cert-completed">
+                                <strong>HTML & CSS</strong>
+                                <span class="cert-status">✓</span>
+                            </div>
+                            <div class="cert-item cert-completed">
+                                <strong>Python</strong>
+                                <span class="cert-status">✓</span>
+                            </div>
+                            <div class="cert-item cert-progress">
+                                <strong>Voice App Development</strong>
+                                <span class="cert-status">...</span>
+                            </div>
+                            <div class="cert-item cert-upcoming">
+                                <strong>Angular</strong>
+                                <span class="cert-status">»</span>
+                            </div>
+                            <div class="cert-item cert-upcoming">
+                                <strong>Software Testing using JavaScript</strong>
+                                <span class="cert-status">»</span>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
