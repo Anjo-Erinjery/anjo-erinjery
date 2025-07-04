@@ -933,15 +933,15 @@
                     
                     <div class="hero-stats">
                         <div class="stat-item">
-                            <span class="stat-number">3+</span>
+                            <span class="stat-number">4+</span>
                             <span class="stat-label">Projects</span>
                         </div>
-                        <div class="stat-item">
+                        <!-- <div class="stat-item">
                             <span class="stat-number">35%</span>
                             <span class="stat-label">Performance Boost</span>
-                        </div>
+                        </div> -->
                         <div class="stat-item">
-                            <span class="stat-number">8+</span>
+                            <span class="stat-number">15+</span>
                             <span class="stat-label">Technologies</span>
                         </div>
                     </div>
@@ -956,19 +956,40 @@
                         <h3 class="section-title">Contact</h3>
                         <div class="contact-item">
                             <span class="contact-icon">📧</span>
-                            <span>your.email@example.com</span>
+                            <!-- <span>anjosamson05@gmail.com</span> -->
+<a href="mailto:anjosamson05@gmail.com" 
+   style="color: #4fc3f7; text-decoration: none;" 
+   title="Click to email or copy anjosamson05@gmail.com" 
+   onclick="copyEmail('anjosamson05@gmail.com')">
+   Email
+</a>
+
+<script>
+function copyEmail(email) {
+    // Create a temporary input element to copy the email
+    const tempInput = document.createElement('input');
+    tempInput.value = email;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    alert('Email copied to clipboard: ' + email);
+}
+</script>
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">📱</span>
-                            <span>+91 XXXXX XXXXX</span>
+                            <span>+91 9072402575</span>
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">💼</span>
-                            <span>linkedin.com/in/yourprofile</span>
+                            <!-- <span>https://www.linkedin.com/in/anjo-samson-erinjery-8923b9284/</span> -->
+                            <a href="https://www.linkedin.com/in/anjo-samson-erinjery-8923b9284/" target="_blank" style="color: #4fc3f7; text-decoration: none;">LinkedIn</a>
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">💻</span>
-                            <span>github.com/yourprofile</span>
+                            <!-- <span>github.com/yourprofile</span> -->
+                            <a href="https://github.com/Anjo-Erinjery" target="_blank" style="color: #4fc3f7; text-decoration: none;">GitHub</a>
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">📍</span>
@@ -982,21 +1003,37 @@
                             <div class="skill-category">
                                 <h4><span class="skill-icon">⚛️</span> Frontend</h4>
                                 <div class="skill-tags">
-                                    <span class="skill-tag">React</span>
-                                    <span class="skill-tag">HTML5</span>
-                                    <span class="skill-tag">CSS3</span>
+                                    
+                                    
+                                    
+                                    
+                                    <span class="skill-tag">HTML</span>
+                                    <span class="skill-tag">CSS</span>
                                     <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">Flutter</span>
+                                    <span class="skill-tag">React Native</span>
                                 </div>
                             </div>
+                            <!-- In your Technical Skills section, add these skill tags -->
+<div class="skill-category">
+    <h4><span class="skill-icon">🛒</span> E-Commerce</h4>
+    <div class="skill-tags">
+        <span class="skill-tag">WooCommerce</span>
+        <span class="skill-tag">WordPress</span>
+        
+    </div>
+</div>
                             
                             <div class="skill-category">
                                 <h4><span class="skill-icon">⚙️</span> Backend</h4>
                                 <div class="skill-tags">
-                                    <span class="skill-tag">Spring Boot</span>
+                                    <span class="skill-tag">Spring</span>
                                     <span class="skill-tag">Python</span>
                                     <span class="skill-tag">Django</span>
                                     <span class="skill-tag">Java</span>
+                                    <span class="skill-tag">Spark</span>
                                 </div>
+
                             </div>
                             
                             <div class="skill-category">
@@ -1020,6 +1057,16 @@
                                 <div class="skill-tags">
                                     <span class="skill-tag">Git</span>
                                     <span class="skill-tag">Postman</span>
+                                    <span class="skill-tag">IntelliJ</span>
+                                    <span class="skill-tag">VS Code</span>
+                                    <span class="skill-tag">LaTeX</span>
+                                    <span class="skill-tag">Excel</span>
+                                    <span class="skill-tag">SPSS</span>
+                                    <span class="skill-tag">Tableau</span>
+                                    <span class="skill-tag">WordPress</span>
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -1063,9 +1110,22 @@
                 <main class="content-area">
                     <section class="section">
                         <h2 class="section-title">Professional Profile</h2>
-                        <p class="profile-text">
+                        <!-- <p class="profile-text">
                             Motivated Full-Stack Developer skilled in building robust, scalable, and secure web applications using React, Spring Boot, and Python. Successfully developed and optimized a full-stack Booking App, enhancing backend performance by 35% using advanced query optimization and caching strategies. Passionate about clean code, responsive design, and cross-functional collaboration to ship high-quality user experiences. Skilled in working with RESTful APIs, payment integrations, and modern development practices.
-                        </p>
+                        </p> -->
+                        <p class="profile-text">
+    Results-Driven Full-Stack Developer with expertise in JavaScript (React/Node), Python, and Java ecosystems. Delivered a 35% performance boost in production applications through strategic optimization of database queries and Redis caching implementations. Specialized in:
+    
+    <ul class="project-features" style="margin-top:15px;">
+        <li><strong>Web Development:</strong> Built 5+ full-stack applications using React + Spring Boot/Django with CI/CD pipelines</li>
+        <li><strong>E-Commerce Solutions:</strong> Developed WordPress/WooCommerce sites with custom payment gateways and 99.9% uptime</li>
+        <li><strong>API Architecture:</strong> Designed RESTful services handling 1000+ RPM with JWT authentication</li>
+        <li><strong>Performance Optimization:</strong> Reduced page load times by 40% through code splitting and asset optimization</li>
+        <li><strong>Mobile Development:</strong> Created cross-platform apps with Flutter featuring Firebase integration</li>
+    </ul>
+    
+    Advocate for test-driven development (Jest/PyTest) and Agile methodologies. Passionate about mentoring junior developers and contributing to open-source projects.
+</p>
                     </section>
 
                     <section class="section">
@@ -1100,6 +1160,24 @@
                                     <li>Significantly improved user experience through accessibility best practices and mobile-first responsive design</li>
                                 </ul>
                             </div>
+                            <!-- Add this project card to your "Featured Projects" section, right after the other projects -->
+<div class="project-card">
+    <div class="project-header">
+        <div class="project-emoji">🛒</div>
+        <div>
+            <h3 class="project-title">E-Commerce Website (WordPress/WooCommerce)</h3>
+            <p class="project-tech">WordPress + WooCommerce + PHP</p>
+        </div>
+    </div>
+    <ul class="project-features">
+        <li>Developed a fully functional e-commerce website using WordPress and WooCommerce</li>
+        <li>Implemented product catalog, shopping cart, and checkout functionality</li>
+        <li>Customized themes and plugins to meet specific business requirements</li>
+        <li>Optimized site performance through caching and image optimization techniques</li>
+        <li>Configured payment gateways and shipping options for seamless transactions</li>
+        <li>Live demo: <a href="https://dev-technova25.pantheonsite.io/" target="_blank" style="color: #667eea; text-decoration: none;">dev-technova25.pantheonsite.io</a></li>
+    </ul>
+</div>
 
                             <div class="project-card">
                                 <div class="project-header">
@@ -1122,37 +1200,30 @@
                         <h2 class="section-title">Certifications & Learning Journey</h2>
                         <div class="cert-grid">
                             <div class="cert-item cert-completed">
-                                <strong>ReactJS</strong>
+                                <strong>Prompt Engineering</strong>
                                 <span class="cert-status">✓</span>
                             </div>
                             <div class="cert-item cert-completed">
-                                <strong>Node.js using JavaScript</strong>
+                                <strong>Spark Fundamentals</strong>
                                 <span class="cert-status">✓</span>
                             </div>
                             <div class="cert-item cert-completed">
-                                <strong>MySQL</strong>
+                                <strong>Google Ads Apps</strong>
                                 <span class="cert-status">✓</span>
                             </div>
                             <div class="cert-item cert-completed">
-                                <strong>HTML & CSS</strong>
+                                <strong>Flutter Development</strong>
                                 <span class="cert-status">✓</span>
                             </div>
                             <div class="cert-item cert-completed">
-                                <strong>Python</strong>
+                                <strong>Git Craft : Mastering Open Source collaboration</strong>
                                 <span class="cert-status">✓</span>
                             </div>
                             <div class="cert-item cert-progress">
-                                <strong>Voice App Development</strong>
+                                <strong>React</strong>
                                 <span class="cert-status">...</span>
                             </div>
-                            <div class="cert-item cert-upcoming">
-                                <strong>Angular</strong>
-                                <span class="cert-status">»</span>
-                            </div>
-                            <div class="cert-item cert-upcoming">
-                                <strong>Software Testing using JavaScript</strong>
-                                <span class="cert-status">»</span>
-                            </div>
+
                         </div>
                     </section>
                 </main>
