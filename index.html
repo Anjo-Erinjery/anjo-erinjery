@@ -100,6 +100,25 @@
         .hero-content {
             position: relative;
             z-index: 2; /* Ensure content is above animated background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 25px;
+            animation: photoGlow 3s infinite alternate;
+        }
+
+        @keyframes photoGlow {
+            from { box-shadow: 0 0 20px rgba(100, 181, 246, 0.5); }
+            to { box-shadow: 0 0 40px rgba(100, 181, 246, 0.8); }
         }
 
         .name {
@@ -453,6 +472,26 @@
             font-size: 1.2em;
         }
 
+        .education-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .education-year {
+            color: #b0bec5;
+            font-style: italic;
+        }
+
+        .education-percentage {
+            background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -649,6 +688,12 @@
                 border-top-right-radius: 20px;
             }
             
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 20px;
+            }
+            
             .name {
                 font-size: 2.5em; /* Smaller font size for name */
                 margin-bottom: 15px;
@@ -756,6 +801,11 @@
         }
 
         @media (max-width: 480px) {
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+            
             .name {
                 font-size: 2em;
             }
@@ -789,6 +839,11 @@
                 font-size: 0.8em;
                 padding: 6px 12px;
             }
+            
+            .education-meta {
+                flex-direction: column;
+                gap: 5px;
+            }
         }
 
         /* Print styles for saving as PDF */
@@ -821,6 +876,12 @@
 
             .hero-section::before {
                 display: none; /* Hide animated background */
+            }
+            
+            .profile-photo {
+                border: 3px solid #ddd;
+                box-shadow: none;
+                animation: none;
             }
 
             .name {
@@ -916,6 +977,11 @@
             .cert-status {
                 -webkit-print-color-adjust: exact;
             }
+            
+            .education-percentage {
+                -webkit-print-color-adjust: exact;
+                background: #4fc3f7; /* Solid color for print */
+            }
         }
     </style>
 </head>
@@ -928,6 +994,9 @@
             <!-- Hero Section: Name, Title, and Key Stats -->
             <section class="hero-section">
                 <div class="hero-content">
+                    <!-- Add your profile photo here - replace the src with your actual image -->
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQHrtunYkI8KkQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1694450425268?e=1756944000&v=beta&t=BS4DRaoXs5A0hjhCZ8-88C4QQ7nBXsWXE97s85xhtYc" alt="Anjo Samson Erinjery" class="profile-photo">
+                    
                     <h1 class="name">Anjo Samson Erinjery</h1>
                     <p class="job-title">Full Stack Developer</p>
                     
@@ -936,10 +1005,6 @@
                             <span class="stat-number">4+</span>
                             <span class="stat-label">Projects</span>
                         </div>
-                        <!-- <div class="stat-item">
-                            <span class="stat-number">35%</span>
-                            <span class="stat-label">Performance Boost</span>
-                        </div> -->
                         <div class="stat-item">
                             <span class="stat-number">15+</span>
                             <span class="stat-label">Technologies</span>
@@ -956,26 +1021,12 @@
                         <h3 class="section-title">Contact</h3>
                         <div class="contact-item">
                             <span class="contact-icon">📧</span>
-                            <!-- <span>anjosamson05@gmail.com</span> -->
-<a href="mailto:anjosamson05@gmail.com" 
-   style="color: #4fc3f7; text-decoration: none;" 
-   title="Click to email or copy anjosamson05@gmail.com" 
-   onclick="copyEmail('anjosamson05@gmail.com')">
-   Email
-</a>
-
-<script>
-function copyEmail(email) {
-    // Create a temporary input element to copy the email
-    const tempInput = document.createElement('input');
-    tempInput.value = email;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempInput);
-    alert('Email copied to clipboard: ' + email);
-}
-</script>
+                            <a href="mailto:anjosamson05@gmail.com" 
+                               style="color: #4fc3f7; text-decoration: none;" 
+                               title="Click to email or copy anjosamson05@gmail.com" 
+                               onclick="copyEmail('anjosamson05@gmail.com')">
+                               Email
+                            </a>
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">📱</span>
@@ -983,12 +1034,14 @@ function copyEmail(email) {
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">💼</span>
-                            <!-- <span>https://www.linkedin.com/in/anjo-samson-erinjery-8923b9284/</span> -->
                             <a href="https://www.linkedin.com/in/anjo-samson-erinjery-8923b9284/" target="_blank" style="color: #4fc3f7; text-decoration: none;">LinkedIn</a>
+                        </div>
+                                                <div class="contact-item">
+                            <span class="contact-icon">💼</span>
+                            <a href="https://anjo-erinjery.github.io/anjo-erinjery/" target="_blank" style="color: #4fc3f7; text-decoration: none;">Portfolio</a>
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">💻</span>
-                            <!-- <span>github.com/yourprofile</span> -->
                             <a href="https://github.com/Anjo-Erinjery" target="_blank" style="color: #4fc3f7; text-decoration: none;">GitHub</a>
                         </div>
                         <div class="contact-item">
@@ -1003,10 +1056,6 @@ function copyEmail(email) {
                             <div class="skill-category">
                                 <h4><span class="skill-icon">⚛️</span> Frontend</h4>
                                 <div class="skill-tags">
-                                    
-                                    
-                                    
-                                    
                                     <span class="skill-tag">HTML</span>
                                     <span class="skill-tag">CSS</span>
                                     <span class="skill-tag">JavaScript</span>
@@ -1014,15 +1063,14 @@ function copyEmail(email) {
                                     <span class="skill-tag">React Native</span>
                                 </div>
                             </div>
-                            <!-- In your Technical Skills section, add these skill tags -->
-<div class="skill-category">
-    <h4><span class="skill-icon">🛒</span> E-Commerce</h4>
-    <div class="skill-tags">
-        <span class="skill-tag">WooCommerce</span>
-        <span class="skill-tag">WordPress</span>
-        
-    </div>
-</div>
+                            
+                            <div class="skill-category">
+                                <h4><span class="skill-icon">🛒</span> E-Commerce</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">WooCommerce</span>
+                                    <span class="skill-tag">WordPress</span>
+                                </div>
+                            </div>
                             
                             <div class="skill-category">
                                 <h4><span class="skill-icon">⚙️</span> Backend</h4>
@@ -1033,7 +1081,6 @@ function copyEmail(email) {
                                     <span class="skill-tag">Java</span>
                                     <span class="skill-tag">Spark</span>
                                 </div>
-
                             </div>
                             
                             <div class="skill-category">
@@ -1064,9 +1111,6 @@ function copyEmail(email) {
                                     <span class="skill-tag">SPSS</span>
                                     <span class="skill-tag">Tableau</span>
                                     <span class="skill-tag">WordPress</span>
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -1076,12 +1120,20 @@ function copyEmail(email) {
                         <h3 class="section-title">Education</h3>
                         <div class="education-timeline">
                             <div class="education-item">
-                                <h4 style="color: #4fc3f7; font-weight: 700; margin-bottom: 8px;">Bachelor's in Computer Science</h4>
+                                <h4 style="color: #4fc3f7; font-weight: 700; margin-bottom: 8px;">B.Voc Data Science</h4>
                                 <p style="color: #b0bec5; font-style: italic;">St. Thomas College (Autonomous), Thrissur</p>
+                                <div class="education-meta">
+                                    <span class="education-year">2023 - 2026</span>
+                                    <span class="education-percentage">8.0</span>
+                                </div>
                             </div>
                             <div class="education-item">
                                 <h4 style="color: #4fc3f7; font-weight: 700; margin-bottom: 8px;">Higher Secondary</h4>
                                 <p style="color: #b0bec5; font-style: italic;">Chaldean Syrian HSS, Thrissur</p>
+                                <div class="education-meta">
+                                    <span class="education-year">2021 - 2023</span>
+                                    <span class="education-percentage">84%</span>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -1110,21 +1162,18 @@ function copyEmail(email) {
                 <main class="content-area">
                     <section class="section">
                         <h2 class="section-title">Professional Profile</h2>
-                        <!-- <p class="profile-text">
-                            Motivated Full-Stack Developer skilled in building robust, scalable, and secure web applications using React, Spring Boot, and Python. Successfully developed and optimized a full-stack Booking App, enhancing backend performance by 35% using advanced query optimization and caching strategies. Passionate about clean code, responsive design, and cross-functional collaboration to ship high-quality user experiences. Skilled in working with RESTful APIs, payment integrations, and modern development practices.
-                        </p> -->
-<p class="profile-text">
-    Versatile Full-Stack Developer with hands-on experience in building scalable web and mobile applications using JavaScript (React/Node), Java (Spring Boot), and Python (Django). Proven track record of enhancing application performance and deploying secure, user-centric solutions across multiple platforms. Key competencies include:
-    
-    <ul class="project-features" style="margin-top:15px;">
-        <li><strong>End-to-End Web Development:</strong> Engineered and deployed 5+ robust web applications using React with Spring Boot/Django backends and automated CI/CD pipelines</li>
-        <li><strong>Mobile App Engineering:</strong> Built responsive cross-platform mobile apps using Flutter integrated with Firebase for real-time data handling and user authentication</li>
-        <li><strong>Custom E-Commerce Platforms:</strong> Delivered WordPress/WooCommerce-based online stores with seamless payment gateway integration and optimized uptime</li>
-        <li><strong>System Optimization:</strong> Implemented Redis caching and SQL query tuning to achieve over 35% performance gains in data-heavy systems</li>
-        <li><strong>API & Payment Systems:</strong> Developed secure RESTful APIs and integrated payment flows using sandbox and live modes for testing and deployment</li>
-    </ul>
-</p>
-
+                        <p class="profile-text">
+                            Versatile Full-Stack Developer with hands-on experience in building scalable web and mobile applications using JavaScript (React/Node), Java (Spring Boot), and Python (Django). Proven track record of enhancing application performance and deploying secure, user-centric solutions across multiple platforms.
+                            Skilled in transforming raw data into actionable business insights through Tableau visualizations, having analyzed Amazon sales data to drive strategic decision-making. Key competencies include:
+                            
+                            <ul class="project-features" style="margin-top:15px;">
+                                <li><strong>End-to-End Web Development:</strong> Engineered and deployed 5+ robust web applications using React with Spring Boot/Django backends and automated CI/CD pipelines</li>
+                                <li><strong>Mobile App Engineering:</strong> Built responsive cross-platform mobile apps using Flutter integrated with Firebase for real-time data handling and user authentication</li>
+                                <li><strong>Custom E-Commerce Platforms:</strong> Delivered WordPress/WooCommerce-based online stores with seamless payment gateway integration and optimized uptime</li>
+                                <li><strong>System Optimization:</strong> Implemented Redis caching and SQL query tuning to achieve over 35% performance gains in data-heavy systems</li>
+                                <li><strong>API & Payment Systems:</strong> Developed secure RESTful APIs and integrated payment flows using sandbox and live modes for testing and deployment</li>
+                            </ul>
+                        </p>
                     </section>
 
                     <section class="section">
@@ -1135,7 +1184,7 @@ function copyEmail(email) {
                                     <div class="project-emoji">📱</div>
                                     <div>
                                         <h3 class="project-title">BookingApp</h3>
-                                        <p class="project-tech">React + Spring Boot/Python</p>
+                                        <p class="project-tech">React + Spring Boot/ Java</p>
                                     </div>
                                 </div>
                                 <ul class="project-features">
@@ -1144,13 +1193,14 @@ function copyEmail(email) {
                                     <li>Enhanced system performance by 35% through advanced query optimization and server-side caching strategies</li>
                                 </ul>
                             </div>
+                            
 
                             <div class="project-card">
                                 <div class="project-header">
                                     <div class="project-emoji">🌐</div>
                                     <div>
                                         <h3 class="project-title">PermitEase</h3>
-                                        <p class="project-tech">Django + React</p>
+                                        <p class="project-tech">Django</p>
                                     </div>
                                 </div>
                                 <ul class="project-features">
@@ -1159,22 +1209,40 @@ function copyEmail(email) {
                                     <li>Significantly improved user experience through accessibility best practices and mobile-first responsive design</li>
                                 </ul>
                             </div>
-                            <!-- Add this project card to your "Featured Projects" section, right after the other projects -->
-<div class="project-card">
+                            
+                            
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <div class="project-emoji">🛒</div>
+                                    <div>
+                                        <h3 class="project-title">E-Commerce Website</h3>
+                                        <p class="project-tech">WordPress + WooCommerce + PHP</p>
+                                    </div>
+                                </div>
+                                <ul class="project-features">
+                                    <li>Developed a fully functional e-commerce website using WordPress and WooCommerce</li>
+                                    <li>Implemented product catalog, shopping cart, and checkout functionality</li>
+                                    <li>Customized themes and plugins to meet specific business requirements</li>
+                                    <li>Optimized site performance through caching and image optimization techniques</li>
+                                    <li>Configured payment gateways and shipping options for seamless transactions</li>
+                                    <li>Live demo: <a href="https://dev-technova25.pantheonsite.io/" target="_blank" style="color: #667eea; text-decoration: none;">dev-technova25.pantheonsite.io</a></li>
+                                </ul>
+                            </div>
+                            <div class="project-card">
     <div class="project-header">
-        <div class="project-emoji">🛒</div>
+        <div class="project-emoji">📊</div>  <!-- Data visualization emoji -->
         <div>
-            <h3 class="project-title">E-Commerce Website (WordPress/WooCommerce)</h3>
-            <p class="project-tech">WordPress + WooCommerce + PHP</p>
+            <h3 class="project-title">Amazon Sales Analytics Dashboard</h3>
+            <p class="project-tech">Tableau + Excel</p>  <!-- Added data processing tools -->
         </div>
     </div>
     <ul class="project-features">
-        <li>Developed a fully functional e-commerce website using WordPress and WooCommerce</li>
-        <li>Implemented product catalog, shopping cart, and checkout functionality</li>
-        <li>Customized themes and plugins to meet specific business requirements</li>
-        <li>Optimized site performance through caching and image optimization techniques</li>
-        <li>Configured payment gateways and shipping options for seamless transactions</li>
-        <li>Live demo: <a href="https://dev-technova25.pantheonsite.io/" target="_blank" style="color: #667eea; text-decoration: none;">dev-technova25.pantheonsite.io</a></li>
+        <li><strong>Data Analysis:</strong> Processed 10,000+ Amazon customer transactions to identify purchasing trends, seasonality, and regional preferences using Tableau</li>
+        <li><strong>Dashboard Development:</strong> Created interactive visualizations showing sales by category, customer demographics, and payment methods with drill-down capabilities</li>
+        <li><strong>Market Insights:</strong> Discovered 3 key product categories with 25% higher-than-average conversion rates for targeted marketing</li>
+        <li><strong>Strategic Impact:</strong> Recommendations led to 15% reduction in customer acquisition costs for test marketing campaigns</li>
+        
+        
     </ul>
 </div>
 
@@ -1215,19 +1283,31 @@ function copyEmail(email) {
                                 <span class="cert-status">✓</span>
                             </div>
                             <div class="cert-item cert-completed">
-                                <strong>Git Craft : Mastering Open Source collaboration</strong>
+                                <strong>Git Craft: Mastering Open Source</strong>
                                 <span class="cert-status">✓</span>
                             </div>
                             <div class="cert-item cert-progress">
                                 <strong>React</strong>
                                 <span class="cert-status">...</span>
                             </div>
-
                         </div>
                     </section>
                 </main>
             </div>
         </div>
     </div>
+    
+    <script>
+        function copyEmail(email) {
+            // Create a temporary input element to copy the email
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            alert('Email copied to clipboard: ' + email);
+        }
+    </script>
 </body>
 </html>
